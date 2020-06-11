@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
 
-it('renders without crashing', () => {
+it('Renders without crashing', () => {
     const div = document.createElement('div')
     ReactDOM.render(<App />, div)
 
@@ -10,3 +10,10 @@ it('renders without crashing', () => {
 
     ReactDOM.unmountComponentAtNode(div)
 })
+
+// create-react-app includes Jest lib
+// we run the script with `npm run start`
+// Jest finds all files ending in .test.js and executes tests inside of them
+// Jest prints out results of tests to the terminal
+// Jest waits for a file to change, then runs all tests again
+
