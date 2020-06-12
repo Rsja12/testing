@@ -1,13 +1,13 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { shallow } from 'enzyme'
 
 import App from '../App'
+import CommentBox from '../CommentBox'
 
 it('renders a comment box', () => {
-    const div = document.createElement('div')
-    ReactDOM.render(<App />, div)
-    
-    expect(div.innerHTML).toContain('Comment Box')
+    const wrapper = shallow(<App />)
 
-    ReactDOM.unmountComponentAtNode(div)
+    // .find method returns array of all instances of CommentBox
+    //  we want to only have one instance
+    expect( wrapper.find(CommentBox).length ).toEqual(1);
 })
