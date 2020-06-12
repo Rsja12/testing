@@ -17,3 +17,14 @@ it('has a textarea and a button', () => {
     expect( wrapper.find('textarea').length ).toEqual(1)
     expect( wrapper.find('button').length ).toEqual(1)
 })
+
+it('has a textarea that users can type in', () => {
+    wrapper.find('textarea').simulate('change', {
+        target: { value: 'new comment' }
+    })
+    // .update() forces a re-render
+    // we need it because setState is asynchronous
+    wrapper.update()
+
+    expect(wrapper.find('textarea').prop('value')).toEqual('new comment')
+})
