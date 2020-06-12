@@ -6,8 +6,8 @@ import CommentBox from './CommentBox'
 const App = () => {
     return (
         <div>
-            <CommentList />
             <CommentBox />
+            <CommentList />
         </div>
     )
 }
