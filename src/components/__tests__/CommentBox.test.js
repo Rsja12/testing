@@ -33,9 +33,9 @@ it('clears textarea on form submit', () => {
         target: { value: 'comment' }
     })
     wrapper.update()
+    expect(wrapper.find('textarea').prop('value')).toEqual('comment')
     
     wrapper.find('form').simulate('submit')
     wrapper.update()
-
     expect(wrapper.find('textarea').prop('value')).toEqual('')
 })
