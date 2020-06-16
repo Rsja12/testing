@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import * as actions from 'actions'
 
 export class CommentBox extends Component {
 
@@ -14,9 +16,8 @@ export class CommentBox extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-
-        // TODO - Call action creator to post comment
-
+        
+        this.props.saveComment( this.state.comment )
         this.setState({
             comment: ''
         })
@@ -38,4 +39,5 @@ export class CommentBox extends Component {
     }
 }
 
-export default CommentBox
+// pass in actions obj that holds all of the creators imported with * at top of file
+export default connect(null, actions)(CommentBox)
