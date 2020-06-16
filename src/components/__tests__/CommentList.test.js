@@ -7,13 +7,12 @@ import CommentList from 'components/CommentList'
 let wrapper 
 
 beforeEach(() => {
+    const initialState = { comments: ['Comment 1', 'Comment 2'] }
+
     wrapper = mount(
-        <Root>
+        <Root initialState={initialState}>
             <CommentList />
         </Root>
     )
 })
 
-it('creates one LI per comment', () => {
-
-})
