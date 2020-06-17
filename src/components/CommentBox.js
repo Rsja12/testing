@@ -10,6 +10,7 @@ export class CommentBox extends Component {
 
     shouldNavigateAway() {
         if(!this.props.auth){
+            // this.props.history comes from react router
             this.props.history.push('/')
         }
     }
