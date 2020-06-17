@@ -8,6 +8,21 @@ export class CommentBox extends Component {
         comment: ''
     }
 
+    shouldNavigateAway() {
+        if(!this.props.auth){
+            this.props.history.push('/')
+        }
+    }
+
+    componentDidMount() {
+        this.shouldNavigateAway()
+    }
+    
+    // gets called when component receives new props (gets updated)
+    componentDidUpdate() {
+        this.shouldNavigateAway()
+    }
+
     handleChange = e => {
         this.setState({
             comment: e.target.value
@@ -46,5 +61,9 @@ export class CommentBox extends Component {
     }
 }
 
+const mapStateToProps = state => ({
+    auth: state.auth
+})
+
 // pass in actions obj that holds all of the creators imported with * at top of file
-export default connect(null, actions)(CommentBox)
+export default connect(mapStateToProps, actions)(CommentBox)
