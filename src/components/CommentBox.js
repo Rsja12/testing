@@ -1,27 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+
 import * as actions from 'actions'
+import requireAuth from 'components/requireAuth'
 
 export class CommentBox extends Component {
 
     state = {
         comment: ''
-    }
-
-    shouldNavigateAway() {
-        if(!this.props.auth){
-            // this.props.history comes from react router
-            this.props.history.push('/')
-        }
-    }
-
-    componentDidMount() {
-        this.shouldNavigateAway()
-    }
-    
-    // gets called when component receives new props (gets updated)
-    componentDidUpdate() {
-        this.shouldNavigateAway()
     }
 
     handleChange = e => {
@@ -62,9 +48,5 @@ export class CommentBox extends Component {
     }
 }
 
-const mapStateToProps = state => ({
-    auth: state.auth
-})
-
 // pass in actions obj that holds all of the creators imported with * at top of file
-export default connect(mapStateToProps, actions)(CommentBox)
+export default connect(null, actions)(requireAuth(CommentBox))
